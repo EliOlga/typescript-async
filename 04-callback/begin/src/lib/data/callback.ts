@@ -14,6 +14,7 @@ import { apiUrl, parseList } from './config';
  * and all of his/her related data.
  * Use callbacks for both success and error conditions.
  */
+const getHeroTreeCallback = function(email:string,callback:Callback<Hero>){}
 
 const getHeroCallback = function(
   email: string,

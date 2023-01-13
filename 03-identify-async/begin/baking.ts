@@ -58,6 +58,7 @@ export function bakeCookies() {
 
   function bake(
     cookieSheet: { batter: any; temp: number; minutes: number },
+    // callback : this is what you should do after you are done
     cb: (cookies: any) => void,
   ) {
     // Logic to bake the cookies and then we return them
