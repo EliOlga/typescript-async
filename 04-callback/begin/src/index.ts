@@ -1,6 +1,6 @@
 import './design/index.scss';
 
-import { showFetching, showMessage } from './lib';
+import { Hero, getHeroTreeCallback, showFetching, showMessage } from './lib';
 import { replaceHeroListComponent } from './heroes.component';
 import { getDataAfterDelay } from './examples/get-ingredients';
 
@@ -48,4 +48,7 @@ async function render() {
    * If it works, display them.
    * If it fails, display an error.
    */
+  getHeroTreeCallback(searchEmailElement.value, (hero: Hero) => {
+    replaceHeroListComponent(hero);
+  });
 }
