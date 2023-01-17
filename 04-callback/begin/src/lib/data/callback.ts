@@ -19,15 +19,23 @@ export const getHeroTreeCallback = function(
   callback: Callback<Hero>,
   callbackError?: CallbackError,
 ) {
-  getHeroCallback(email, (hero: Hero) => {
-    getOrdersCallback(hero.id, (orders: Order[]) => {
-      hero.orders = orders;
-      getAccountRepCallback(hero.id, (accountRep: AccountRepresentative) => {
-        hero.accountRep = accountRep;
-        callback(hero);
+  getHeroCallback(
+    email,
+    (hero: Hero) => {
+      getOrdersCallback(hero.id, (orders: Order[]) => {
+        hero.orders = orders;
+        getAccountRepCallback(
+          hero.id,
+          (accountRep: AccountRepresentative) => {
+            hero.accountRep = accountRep;
+            callback(hero);
+          },
+          error => callbackError(error),
+        );
       });
-    });
-  });
+    },
+    error => callbackError(error),
+  );
 };
 
 const getHeroCallback = function(

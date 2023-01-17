@@ -50,5 +50,9 @@ async function render() {
    */
   getHeroTreeCallback(searchEmailElement.value, (hero: Hero) => {
     replaceHeroListComponent(hero);
+  }, (errorMsg:string)=>{
+    console.log(errorMsg);
+    showMessage(errorMsg);
+    replaceHeroListComponent();
   });
 }
